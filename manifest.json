@@ -1,0 +1,36 @@
+{
+    "name": "自动下单",
+    "description": "一个淘宝自动下单工具",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "gou.png",
+        "default_title": "自动下单"
+    },
+    "manifest_version": 2,
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            },
+            "description": "Opens 自动下单"
+        }
+    },
+    "permissions": [
+        "https://*.taobao.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.taobao.com/*",
+                "https://*.tmall.com/*"
+            ],
+            "js": [
+                "jquery-3.3.1.min.js",
+                "script.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ]
+}
